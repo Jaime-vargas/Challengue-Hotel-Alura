@@ -1,0 +1,8 @@
+com\hotelAlura\Factory\ConnectionFactory.class
+com\hotelAlura\app\Applocation.class
+com\hotelAlura\models\User.class
+com\hotelAlura\models\Reservation.class
+com\hotelAlura\app\HotelAlura.class
+com\hotelAlura\DAO\UserDAO.class
+com\hotelAlura\models\Guest.class
+com\hotelAlura\test\ConnectionTest.class
