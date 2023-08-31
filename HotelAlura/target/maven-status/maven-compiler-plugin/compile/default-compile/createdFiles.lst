@@ -1,8 +1,13 @@
 com\hotelAlura\Factory\ConnectionFactory.class
-com\hotelAlura\app\Applocation.class
-com\hotelAlura\models\User.class
+com\hotelAlura\Tests\ConnectionTestReservation.class
+com\hotelAlura\Controllers\UserController.class
 com\hotelAlura\models\Reservation.class
-com\hotelAlura\app\HotelAlura.class
+com\hotelAlura\App\HotelAluraLogin$2.class
 com\hotelAlura\DAO\UserDAO.class
+com\hotelAlura\App\HotelAluraLogin$1.class
 com\hotelAlura\models\Guest.class
-com\hotelAlura\test\ConnectionTest.class
+com\hotelAlura\App\HotelAluraLogin$3.class
+com\hotelAlura\App\HotelAluraLogin.class
+com\hotelAlura\Tests\ConnectionTestGuest.class
+com\hotelAlura\models\User.class
+com\hotelAlura\Tests\ConnectionTest.class

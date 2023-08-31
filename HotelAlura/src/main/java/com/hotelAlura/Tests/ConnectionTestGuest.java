@@ -1,10 +1,10 @@
-package com.hotelAlura.test;
+package com.hotelAlura.Tests;
 
 import java.time.LocalDate;
 
 import com.hotelAlura.DAO.GuestDAO;
 import com.hotelAlura.Factory.ConnectionFactory;
-import com.hotelAlura.models.Guest;
+import com.hotelAlura.Models.Guest;
 
 public class ConnectionTestGuest {
     public static void main(String[] args) {
@@ -12,11 +12,11 @@ public class ConnectionTestGuest {
         GuestDAO guestDAO;
         ConnectionFactory connection = new ConnectionFactory();
         guestDAO = new GuestDAO(connection.doConnection());
-        Guest guest = new Guest(9,"Federico", "Lopez", LocalDate.of(1993, 12, 20), "Canadian", "523315383333");
+        Guest guest = new Guest(9, "Manuel", "Lopez", LocalDate.of(1993, 12, 20), "Canadian", "523315383333");
 
         var list = guestDAO.read();
-        
-        for(int i = 0; i < list.size(); i ++ ){
+
+        for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).toString());
         }
 

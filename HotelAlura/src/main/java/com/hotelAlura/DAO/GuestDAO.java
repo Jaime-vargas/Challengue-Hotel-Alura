@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.hotelAlura.models.Guest;
+import com.hotelAlura.Models.Guest;
 
 public class GuestDAO {
 
