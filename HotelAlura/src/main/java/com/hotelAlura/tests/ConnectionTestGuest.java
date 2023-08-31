@@ -1,10 +1,10 @@
-package com.hotelAlura.Tests;
+package com.hotelAlura.tests;
 
 import java.time.LocalDate;
 
 import com.hotelAlura.DAO.GuestDAO;
-import com.hotelAlura.Factory.ConnectionFactory;
-import com.hotelAlura.Models.Guest;
+import com.hotelAlura.factory.ConnectionFactory;
+import com.hotelAlura.models.Guest;
 
 public class ConnectionTestGuest {
     public static void main(String[] args) {

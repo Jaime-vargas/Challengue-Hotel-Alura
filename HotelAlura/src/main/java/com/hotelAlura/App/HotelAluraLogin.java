@@ -5,8 +5,11 @@
 package com.hotelAlura.App;
 
 import com.formdev.flatlaf.FlatLightLaf;
-import com.hotelAlura.Controllers.UserController;
-import com.hotelAlura.Factory.ConnectionFactory;
+import com.hotelAlura.controllers.UserController;
+import com.hotelAlura.factory.ConnectionFactory;
+import com.hotelAlura.views.MainMenu;
+import java.awt.BorderLayout;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
@@ -32,58 +35,98 @@ public class HotelAluraLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        loginPanel = new javax.swing.JPanel();
+        Contents = new javax.swing.JPanel();
+        LoginPanel = new javax.swing.JPanel();
+        aluraLogo = new javax.swing.JLabel();
+        labelLogin = new javax.swing.JLabel();
+        labelUserName = new javax.swing.JLabel();
         fieldUserName = new javax.swing.JTextField();
-        fieldUserPassword = new javax.swing.JTextField();
+        labelUserPassword1 = new javax.swing.JLabel();
+        fieldUserPassword = new javax.swing.JPasswordField();
         buttonLogin = new javax.swing.JButton();
-        testLabel = new javax.swing.JLabel();
+        errorLabel = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Hotel Alura Login");
         setMaximumSize(new java.awt.Dimension(1280, 720));
         setMinimumSize(new java.awt.Dimension(1280, 720));
+        setResizable(false);
 
-        loginPanel.setBackground(new java.awt.Color(250, 250, 250));
-        loginPanel.setPreferredSize(new java.awt.Dimension(1280, 720));
-        loginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        Contents.setBackground(new java.awt.Color(250, 250, 250));
+        Contents.setPreferredSize(new java.awt.Dimension(1280, 720));
+        Contents.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        fieldUserName.setText("user");
+        LoginPanel.setBackground(new java.awt.Color(250, 250, 250));
+        LoginPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        aluraLogo.setIcon(new javax.swing.ImageIcon("C:\\Users\\jaime\\Desktop\\Hotel\\HotelAlura\\src\\main\\java\\com\\hotelAlura\\Images\\aH-150px.png")); // NOI18N
+        LoginPanel.add(aluraLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 10, -1, -1));
+
+        labelLogin.setBackground(new java.awt.Color(250, 250, 250));
+        labelLogin.setFont(new java.awt.Font("Roboto Medium", 1, 48)); // NOI18N
+        labelLogin.setForeground(new java.awt.Color(51, 51, 51));
+        labelLogin.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelLogin.setText("Login");
+        labelLogin.setPreferredSize(new java.awt.Dimension(127, 60));
+        LoginPanel.add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 160, 400, 60));
+
+        labelUserName.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        labelUserName.setForeground(new java.awt.Color(51, 51, 51));
+        labelUserName.setText("Username");
+        LoginPanel.add(labelUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 300, 20));
+
+        fieldUserName.setBackground(new java.awt.Color(250, 250, 250));
+        fieldUserName.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        fieldUserName.setText("username");
         fieldUserName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fieldUserNameActionPerformed(evt);
             }
         });
-        loginPanel.add(fieldUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, -1, -1));
+        LoginPanel.add(fieldUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 300, 30));
 
-        fieldUserPassword.setText("password");
-        fieldUserPassword.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldUserPasswordActionPerformed(evt);
-            }
-        });
-        loginPanel.add(fieldUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 340, -1, -1));
+        labelUserPassword1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        labelUserPassword1.setForeground(new java.awt.Color(51, 51, 51));
+        labelUserPassword1.setText("Password");
+        LoginPanel.add(labelUserPassword1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 300, 20));
 
+        fieldUserPassword.setBackground(new java.awt.Color(250, 250, 250));
+        fieldUserPassword.setText("jPasswordField1");
+        LoginPanel.add(fieldUserPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 300, 30));
+
+        buttonLogin.setBackground(new java.awt.Color(0, 102, 153));
+        buttonLogin.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        buttonLogin.setForeground(new java.awt.Color(255, 255, 255));
         buttonLogin.setText("Login");
+        buttonLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonLoginActionPerformed(evt);
             }
         });
-        loginPanel.add(buttonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 380, -1, -1));
+        LoginPanel.add(buttonLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 300, 30));
 
-        testLabel.setText("Response");
-        loginPanel.add(testLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 250, 180, 30));
+        errorLabel.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        errorLabel.setForeground(new java.awt.Color(255, 0, 51));
+        errorLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        LoginPanel.add(errorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 400, 300, 30));
+
+        Contents.add(LoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 400, 500));
+
+        background.setIcon(new javax.swing.ImageIcon("C:\\Users\\jaime\\Desktop\\Hotel\\HotelAlura\\src\\main\\java\\com\\hotelAlura\\Images\\mainbg.jpg")); // NOI18N
+        Contents.add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(Contents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(loginPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Contents, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -95,26 +138,34 @@ public class HotelAluraLogin extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_fieldUserNameActionPerformed
 
-    private void fieldUserPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUserPasswordActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldUserPasswordActionPerformed
-
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
-        // TODO add your handling code here:
-        var user = fieldUserName.getText();
-        var password = fieldUserPassword.getText();
-        String label;
+        login();
         
-        if(UserController.save(user, password)){
-            label = "true";
-        }else{label = "false";}
-        
-            testLabel.setText(label);
     }//GEN-LAST:event_buttonLoginActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    public void login (){
+        
+        String errorMessage = "Wrong username or password";
+        
+        String  user = fieldUserName.getText();
+        String  password = fieldUserPassword.getText();
+        
+        if(UserController.save(user, password)){
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.setSize(200,500);
+            Contents.setLayout(new BorderLayout());
+            Contents.removeAll();
+            Contents.add(mainMenu);
+            Contents.revalidate();
+            Contents.repaint();
+            
+            
+            //show another window  
+        }else{
+            errorLabel.setText(errorMessage);
+        }   
+    }
+
     public static void main(String args[]) {
         
         FlatLightLaf.setup();
@@ -126,10 +177,16 @@ public class HotelAluraLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Contents;
+    private javax.swing.JPanel LoginPanel;
+    private javax.swing.JLabel aluraLogo;
+    private javax.swing.JLabel background;
     private javax.swing.JButton buttonLogin;
+    private javax.swing.JLabel errorLabel;
     private javax.swing.JTextField fieldUserName;
-    private javax.swing.JTextField fieldUserPassword;
-    private javax.swing.JPanel loginPanel;
-    private javax.swing.JLabel testLabel;
+    private javax.swing.JPasswordField fieldUserPassword;
+    private javax.swing.JLabel labelLogin;
+    private javax.swing.JLabel labelUserName;
+    private javax.swing.JLabel labelUserPassword1;
     // End of variables declaration//GEN-END:variables
 }
