@@ -16,11 +16,14 @@ import com.hotelAlura.models.User;
 public class UserController {
     private static final ConnectionFactory connection = new ConnectionFactory();
     
-    public static boolean save(String userName, String userPassword){
+    public static boolean authenticate(String userName, String userPassword){
+            boolean result = !userName.isEmpty()  || !userPassword.isEmpty();
+            System.out.println("is empty: " + result);
             if(!userName.isEmpty()  || !userPassword.isEmpty()){
                 UserDAO userDAO = new UserDAO(connection.doConnection());
                 User user = new User( userName, userPassword);
-                return userDAO.validate(user);
+                System.out.println(userDAO.authenticate(user) + "DAO");
+                return userDAO.authenticate(user);
             }else{
                 return false;
             }

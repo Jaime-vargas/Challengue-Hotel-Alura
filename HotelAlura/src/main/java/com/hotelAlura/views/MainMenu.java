@@ -4,19 +4,32 @@
  */
 package com.hotelAlura.views;
 
+import com.hotelAlura.App.HotelAluraLogin;
+import com.hotelAlura.Util.InterfaceUtil;
+import com.hotelAlura.controllers.UserController;
+import java.awt.BorderLayout;
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
 /**
  *
  * @author jaime
  */
 public class MainMenu extends javax.swing.JPanel {
 
+    private JPanel contents;
+    private InterfaceUtil interfaceUtil;
+    
     /**
      * Creates new form MainMenu
+     * @param interfaceUtil
      */
-    public MainMenu() {
+    public MainMenu(InterfaceUtil interfaceUtil) {
+        this.interfaceUtil = interfaceUtil;
         initComponents();
+        
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -26,12 +39,31 @@ public class MainMenu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jToggleButton1 = new javax.swing.JToggleButton();
+
         setBackground(new java.awt.Color(153, 255, 153));
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jToggleButton1.setText("Close session");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
+        add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        singOut ();
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    public void singOut (){
+            interfaceUtil.showLogoutQuestion();
+    } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JToggleButton jToggleButton1;
     // End of variables declaration//GEN-END:variables
 }

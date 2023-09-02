@@ -98,17 +98,14 @@ public class UserDAO {
         }
     }
 
-    public boolean validate(User user) {
-        try {
-            PreparedStatement statement = connection.prepareStatement(
-                    "SELECT * from users WHERE(username = BINARY ? AND password = BINARY ?)");
+    public boolean authenticate(User user) {
+        try (PreparedStatement statement = connection.prepareStatement(
+                    "SELECT * from users WHERE(username = BINARY ? AND password = BINARY ?)")){
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getPassword());
-
-            try (ResultSet resultSet = statement.executeQuery()) {
-
-                return resultSet.next();
-            }
+            ResultSet resultSet = statement.executeQuery();
+            return resultSet.next();
+            
         } catch (SQLException e) {
             // TODO error frame with error
             return false;

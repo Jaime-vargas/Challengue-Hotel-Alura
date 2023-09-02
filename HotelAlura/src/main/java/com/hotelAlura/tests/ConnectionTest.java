@@ -30,7 +30,7 @@ public class ConnectionTest {
                     list.get(i).getUsername());
         }
 
-        var rerult = userDao.validate(user);
+        var rerult = userDao.authenticate(user);
         System.out.println(rerult);
     }
 
