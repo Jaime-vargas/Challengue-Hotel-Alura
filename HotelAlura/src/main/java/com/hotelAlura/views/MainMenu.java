@@ -1,15 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.hotelAlura.views;
 
-import com.hotelAlura.App.HotelAluraLogin;
 import com.hotelAlura.Util.InterfaceUtil;
-import com.hotelAlura.controllers.UserController;
-import java.awt.BorderLayout;
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
 /**
  *
@@ -17,7 +9,6 @@ import javax.swing.SwingUtilities;
  */
 public class MainMenu extends javax.swing.JPanel {
 
-    private JPanel contents;
     private InterfaceUtil interfaceUtil;
     
     /**
@@ -26,8 +17,7 @@ public class MainMenu extends javax.swing.JPanel {
      */
     public MainMenu(InterfaceUtil interfaceUtil) {
         this.interfaceUtil = interfaceUtil;
-        initComponents();
-        
+        initComponents();  
     }
     
     /**
@@ -39,31 +29,59 @@ public class MainMenu extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jToggleButton1 = new javax.swing.JToggleButton();
+        labelLogo = new javax.swing.JLabel();
+        buttonReservations = new javax.swing.JButton();
+        buttonSearch = new javax.swing.JButton();
+        labelSingOut = new javax.swing.JLabel();
+        labelBG = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(153, 255, 153));
+        setBackground(new java.awt.Color(252, 252, 252));
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jToggleButton1.setText("Close session");
-        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton1ActionPerformed(evt);
+        labelLogo.setIcon(new javax.swing.ImageIcon("D:\\jaime\\Desktop\\Challengue-Hotel-Alura\\HotelAlura\\src\\main\\java\\com\\hotelAlura\\images\\aH-150px.png")); // NOI18N
+        add(labelLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(1045, 45, -1, -1));
+
+        buttonReservations.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        buttonReservations.setText("Reservations");
+        buttonReservations.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(buttonReservations, new org.netbeans.lib.awtextra.AbsoluteConstraints(1045, 290, 150, 60));
+
+        buttonSearch.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        buttonSearch.setText("Search");
+        buttonSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        add(buttonSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(1045, 380, 150, 60));
+
+        labelSingOut.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        labelSingOut.setForeground(new java.awt.Color(102, 102, 102));
+        labelSingOut.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelSingOut.setText("Sing out");
+        labelSingOut.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        labelSingOut.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                labelSingOutMouseClicked(evt);
             }
         });
-        add(jToggleButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 180, -1, -1));
+        add(labelSingOut, new org.netbeans.lib.awtextra.AbsoluteConstraints(1045, 650, 150, -1));
+
+        labelBG.setIcon(new javax.swing.ImageIcon("D:\\jaime\\Desktop\\Challengue-Hotel-Alura\\HotelAlura\\src\\main\\java\\com\\hotelAlura\\images\\bgMenu.png")); // NOI18N
+        labelBG.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        add(labelBG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        // TODO add your handling code here:
-        singOut ();
-    }//GEN-LAST:event_jToggleButton1ActionPerformed
+    private void labelSingOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSingOutMouseClicked
+         singOut ();
+    }//GEN-LAST:event_labelSingOutMouseClicked
 
     public void singOut (){
             interfaceUtil.showLogoutQuestion();
     } 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JButton buttonReservations;
+    private javax.swing.JButton buttonSearch;
+    private javax.swing.JLabel labelBG;
+    private javax.swing.JLabel labelLogo;
+    private javax.swing.JLabel labelSingOut;
     // End of variables declaration//GEN-END:variables
 }

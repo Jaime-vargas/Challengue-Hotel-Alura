@@ -42,10 +42,9 @@ public class LogoutQuestion extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(580, 160));
         setResizable(false);
 
-        jPanel1.setBackground(new java.awt.Color(250, 250, 250));
+        jPanel1.setBackground(new java.awt.Color(254, 254, 254));
         jPanel1.setPreferredSize(new java.awt.Dimension(580, 160));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -58,27 +57,30 @@ public class LogoutQuestion extends javax.swing.JFrame {
         });
         jPanel1.add(labelClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(535, 20, 25, 25));
 
-        labelQuestion.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        labelQuestion.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
+        labelQuestion.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelQuestion.setText("Are you sure you want to close your sesion?");
-        jPanel1.add(labelQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 45, 550, 30));
+        jPanel1.add(labelQuestion, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 550, 30));
 
-        buttonClose.setText("Close");
+        buttonClose.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        buttonClose.setText("YES");
         buttonClose.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonClose.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCloseActionPerformed(evt);
             }
         });
-        jPanel1.add(buttonClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
+        jPanel1.add(buttonClose, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 110, 200, 30));
 
-        buttonCancel.setText("Cancel");
+        buttonCancel.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
+        buttonCancel.setText("NO");
         buttonCancel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         buttonCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buttonCancelActionPerformed(evt);
             }
         });
-        jPanel1.add(buttonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, -1, -1));
+        jPanel1.add(buttonCancel, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 110, 200, 30));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,25 +98,21 @@ public class LogoutQuestion extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void buttonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCancelActionPerformed
-        // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_buttonCancelActionPerformed
 
     private void buttonCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCloseActionPerformed
-        // TODO add your handling code here:
         singOut();
     }//GEN-LAST:event_buttonCloseActionPerformed
 
     private void labelCloseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelCloseMouseClicked
-         dispose();
+        dispose();
     }//GEN-LAST:event_labelCloseMouseClicked
 
     
     public void singOut(){
-
         dispose();
         interfaceUtil.showLoginPanel();
-
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

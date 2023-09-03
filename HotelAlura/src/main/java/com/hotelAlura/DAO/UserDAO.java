@@ -26,10 +26,10 @@ public class UserDAO {
     }
 
     public boolean save(User user) {
-        try {
-            PreparedStatement statement = connection.prepareStatement(
+        try (PreparedStatement statement = connection.prepareStatement(
                     "INSERT INTO users (username, password) VALUES (?, ?)",
-                    Statement.RETURN_GENERATED_KEYS);
+                    Statement.RETURN_GENERATED_KEYS)){
+            
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getPassword());
 
@@ -45,19 +45,19 @@ public class UserDAO {
 
     public List<User> read() {
         List<User> users = new ArrayList<>();
-        try {
-            PreparedStatement statement = connection.prepareStatement(
-                    "SELECT id, username, password FROM users");
+        try (PreparedStatement statement = connection.prepareStatement(
+                    "SELECT id, username, password FROM users")){
+            
             statement.execute();
 
-            try (ResultSet resultSet = statement.getResultSet()) {
+            ResultSet resultSet = statement.getResultSet();
                 while (resultSet.next()) {
                     users.add(new User(
                             resultSet.getInt("id"),
                             resultSet.getString("username"),
                             resultSet.getString("password")));
                 }
-            }
+            
             return users;
         } catch (SQLException e) {
             return null;
@@ -65,9 +65,8 @@ public class UserDAO {
     }
 
     public boolean update(User user) {
-        try {
-            PreparedStatement statement = connection.prepareStatement(
-                    "UPDATE users SET username = ?, password = ? WHERE id = ? ;");
+        try (PreparedStatement statement = connection.prepareStatement(
+                    "UPDATE users SET username = ?, password = ? WHERE id = ? ;")){
             statement.setInt(3, user.getId());
             statement.setString(1, user.getUsername());
             statement.setString(2, user.getPassword());
@@ -83,9 +82,8 @@ public class UserDAO {
     }
 
     public boolean delete(User user) {
-        try {
-            PreparedStatement statement = connection.prepareStatement(
-                    "DELETE FROM users WHERE id = ? ;");
+        try (PreparedStatement statement = connection.prepareStatement(
+                    "DELETE FROM users WHERE id = ? ;")){
             statement.setInt(1, user.getId());
 
             int rowsAffected = statement.executeUpdate();

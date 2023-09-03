@@ -1,11 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.hotelAlura.App;
 import com.formdev.flatlaf.FlatLightLaf;
 import com.hotelAlura.Util.InterfaceUtil;
-
 
 /**
  *
@@ -15,12 +10,9 @@ public class HotelAluraLogin extends javax.swing.JFrame {
 
     InterfaceUtil interfaceUtil = new InterfaceUtil();
  
-    /**
-     * Creates new form HotelAluraLogin
-     */
     public HotelAluraLogin() {
         initComponents();
-        interfaceUtil.setContents(Contents);
+        interfaceUtil.setContentsPanel(Contents);
         interfaceUtil.showLoginPanel();
 
     }
@@ -65,7 +57,6 @@ public class HotelAluraLogin extends javax.swing.JFrame {
     public static void main(String args[]) {
         
         FlatLightLaf.setup();
-        
         java.awt.EventQueue.invokeLater(() -> {
             new HotelAluraLogin().setVisible(true);
         });

@@ -1,12 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
 package com.hotelAlura.views;
 
 import com.hotelAlura.Util.InterfaceUtil;
 import com.hotelAlura.controllers.UserController;
-import javax.swing.JPanel;
 
 /**
  *
@@ -23,7 +18,7 @@ public class LoginPanel extends javax.swing.JPanel {
         this.interfaceUtil = interfaceUtil;
         initComponents();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,9 +41,12 @@ public class LoginPanel extends javax.swing.JPanel {
         labelBackground = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(250, 250, 250));
+        setMaximumSize(new java.awt.Dimension(1280, 720));
         setPreferredSize(new java.awt.Dimension(1280, 720));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        MainPanel.setMinimumSize(new java.awt.Dimension(1280, 720));
+        MainPanel.setPreferredSize(new java.awt.Dimension(1280, 720));
         MainPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LoginPanel.setBackground(new java.awt.Color(250, 250, 250));
@@ -73,11 +71,6 @@ public class LoginPanel extends javax.swing.JPanel {
         fieldUserName.setBackground(new java.awt.Color(250, 250, 250));
         fieldUserName.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         fieldUserName.setText("root");
-        fieldUserName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fieldUserNameActionPerformed(evt);
-            }
-        });
         LoginPanel.add(fieldUserName, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 300, 30));
 
         labelUserPassword.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -109,22 +102,16 @@ public class LoginPanel extends javax.swing.JPanel {
         MainPanel.add(LoginPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 400, 500));
 
         labelBackground.setIcon(new javax.swing.ImageIcon("D:\\jaime\\Desktop\\Challengue-Hotel-Alura\\HotelAlura\\src\\main\\java\\com\\hotelAlura\\images\\mainbg.jpg")); // NOI18N
-        MainPanel.add(labelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        MainPanel.add(labelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 730));
 
         add(MainPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1280, 720));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fieldUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fieldUserNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fieldUserNameActionPerformed
-
     private void buttonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonLoginActionPerformed
         login(fieldUserName.getText(), fieldUserPassword.getText());
-
     }//GEN-LAST:event_buttonLoginActionPerformed
 
     public void login (String user, String password){
- 
         boolean authenticated = UserController.authenticate(user,password);
         String errorMessage = "Wrong user or password";
         if(authenticated){

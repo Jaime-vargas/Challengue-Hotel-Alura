@@ -2,10 +2,10 @@ com\hotelAlura\views\LoginPanel$1.class
 com\hotelAlura\Factory\ConnectionFactory.class
 com\hotelAlura\views\MainMenu.class
 com\hotelAlura\Controllers\UserController.class
+com\hotelAlura\views\Reservation.class
 com\hotelAlura\DAO\UserDAO.class
 com\hotelAlura\App\HotelAluraLogin.class
 com\hotelAlura\Tests\ConnectionTestGuest.class
-com\hotelAlura\views\LoginPanel$2.class
 com\hotelAlura\Tests\ConnectionTest.class
 com\hotelAlura\views\LogoutQuestion$2.class
 com\hotelAlura\views\LogoutQuestion.class
