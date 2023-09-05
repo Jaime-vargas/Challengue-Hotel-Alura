@@ -45,6 +45,11 @@ public class MainMenu extends javax.swing.JPanel {
         buttonReservations.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         buttonReservations.setText("Reservations");
         buttonReservations.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buttonReservations.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonReservationsActionPerformed(evt);
+            }
+        });
         add(buttonReservations, new org.netbeans.lib.awtextra.AbsoluteConstraints(1045, 290, 150, 60));
 
         buttonSearch.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
@@ -72,6 +77,10 @@ public class MainMenu extends javax.swing.JPanel {
     private void labelSingOutMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelSingOutMouseClicked
          singOut ();
     }//GEN-LAST:event_labelSingOutMouseClicked
+
+    private void buttonReservationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonReservationsActionPerformed
+        interfaceUtil.showReservationPAnel();
+    }//GEN-LAST:event_buttonReservationsActionPerformed
 
     public void singOut (){
             interfaceUtil.showLogoutQuestion();

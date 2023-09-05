@@ -4,10 +4,9 @@
  */
 package com.hotelAlura.Util;
 
-import com.hotelAlura.views.LoginPanel;
-import com.hotelAlura.views.LogoutQuestion;
-import com.hotelAlura.views.MainMenu;
+import com.hotelAlura.views.*;
 import javax.swing.JPanel;
+
 
 /**
  *
@@ -20,6 +19,7 @@ public class InterfaceUtil {
     private LoginPanel loginPanel;
     private MainMenu mainMenu;
     private LogoutQuestion logoutQuestion;
+    private Reservation reservation;
     
     public void setContentsPanel(JPanel contents){
         
@@ -53,5 +53,15 @@ public class InterfaceUtil {
        logoutQuestion = new LogoutQuestion(this);
        logoutQuestion.setVisible(true);
     }
+    
+    public void showReservationPAnel(){
+        contents.removeAll();
+        contents.setLayout(null);
+        reservation = new Reservation(this);
+        reservation.setSize(1280,720);
+        contents.add(reservation);
+        contents.revalidate();
+        contents.repaint(); 
+    }   
     
 }
