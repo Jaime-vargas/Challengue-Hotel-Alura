@@ -7,6 +7,7 @@ com\hotelAlura\DAO\UserDAO.class
 com\hotelAlura\views\MainMenu$2.class
 com\hotelAlura\App\HotelAluraLogin.class
 com\hotelAlura\Tests\ConnectionTestGuest.class
+com\hotelAlura\views\Reservation$3.class
 com\hotelAlura\views\Reservation$1.class
 com\hotelAlura\Tests\ConnectionTest.class
 com\hotelAlura\views\LogoutQuestion$2.class
@@ -15,8 +16,10 @@ com\hotelAlura\Tests\ConnectionTestReservation.class
 com\hotelAlura\views\LogoutQuestion$3.class
 com\hotelAlura\views\MainMenu$1.class
 com\hotelAlura\models\Reservation.class
+com\hotelAlura\Tests\ReservationsTest.class
 com\hotelAlura\models\Guest.class
 com\hotelAlura\Util\InterfaceUtil.class
 com\hotelAlura\views\LoginPanel.class
 com\hotelAlura\views\LogoutQuestion$1.class
 com\hotelAlura\models\User.class
+com\hotelAlura\views\Reservation$2.class

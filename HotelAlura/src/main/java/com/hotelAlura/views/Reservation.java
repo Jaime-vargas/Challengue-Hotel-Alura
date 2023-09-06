@@ -5,6 +5,10 @@
 package com.hotelAlura.views;
 
 import com.hotelAlura.Util.InterfaceUtil;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
 
 
 /**
@@ -35,7 +39,7 @@ public class Reservation extends javax.swing.JPanel {
         labelCheckInDate = new javax.swing.JLabel();
         dateCheckInDate = new com.toedter.calendar.JDateChooser();
         labelCheckOutDate = new javax.swing.JLabel();
-        dateCheckOutDate1 = new com.toedter.calendar.JDateChooser();
+        dateCheckOutDate = new com.toedter.calendar.JDateChooser();
         labelRoom = new javax.swing.JLabel();
         comboBoxRooms = new javax.swing.JComboBox<>();
         labelCurrency = new javax.swing.JLabel();
@@ -43,6 +47,7 @@ public class Reservation extends javax.swing.JPanel {
         labelClient = new javax.swing.JLabel();
         buttonRegisteredClient = new javax.swing.JButton();
         buttonNewClient = new javax.swing.JButton();
+        buttonNewClient1 = new javax.swing.JButton();
         labelBg = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -67,8 +72,8 @@ public class Reservation extends javax.swing.JPanel {
         labelCheckOutDate.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(labelCheckOutDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 295, 300, -1));
 
-        dateCheckOutDate1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        add(dateCheckOutDate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 335, 256, 50));
+        dateCheckOutDate.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        add(dateCheckOutDate, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 335, 256, 50));
 
         labelRoom.setFont(new java.awt.Font("Roboto", 0, 18)); // NOI18N
         labelRoom.setForeground(new java.awt.Color(51, 51, 51));
@@ -104,30 +109,93 @@ public class Reservation extends javax.swing.JPanel {
         labelClient.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         add(labelClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 585, 300, 25));
 
+        buttonRegisteredClient.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         buttonRegisteredClient.setText("Registered client");
+        buttonRegisteredClient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonRegisteredClientActionPerformed(evt);
+            }
+        });
         add(buttonRegisteredClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 620, 125, 30));
 
+        buttonNewClient.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         buttonNewClient.setText("New client");
         add(buttonNewClient, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 620, 125, 30));
+
+        buttonNewClient1.setBackground(new java.awt.Color(204, 0, 51));
+        buttonNewClient1.setFont(new java.awt.Font("Roboto Black", 0, 14)); // NOI18N
+        buttonNewClient1.setForeground(new java.awt.Color(255, 255, 255));
+        buttonNewClient1.setText("Continue");
+        buttonNewClient1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonNewClient1ActionPerformed(evt);
+            }
+        });
+        add(buttonNewClient1, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 660, 125, 30));
 
         labelBg.setIcon(new javax.swing.ImageIcon("D:\\jaime\\Desktop\\Challengue-Hotel-Alura\\HotelAlura\\src\\main\\java\\com\\hotelAlura\\images\\bgRegister.png")); // NOI18N
         add(labelBg, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboBoxRoomsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxRoomsActionPerformed
-         var fecha = dateCheckInDate.getDate();
-         System.out.println(fecha);
+         
 
     }//GEN-LAST:event_comboBoxRoomsActionPerformed
 
+    private void buttonRegisteredClientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonRegisteredClientActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buttonRegisteredClientActionPerformed
 
+    private void buttonNewClient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewClient1ActionPerformed
+
+        int days = checkDates();
+        int cost = comboBoxRooms.getSelectedIndex();
+        //ChronoUnit.DAYS.between(checkInDate, checkOutDate);
+        if(cost == 0){
+            cost = 89;
+        }
+        if(cost == 1){
+            cost = 159;
+        }
+        
+       // int totalcost = cost * ChronoUnit.DAYS.between(checkInDate, checkOutDate);
+        
+        System.out.println("Noches :" + days + " total: $" + totalcost);
+        
+       
+       
+
+    }//GEN-LAST:event_buttonNewClient1ActionPerformed
+
+    private LocalDate getDate(Calendar calendar){
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1; // Nota: Los meses en Calendar van de 0 a 11, por lo que sumamos 1
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+        return LocalDate.of(year, month,day);
+    }
+    
+    private int checkDates(){
+        try{
+            LocalDate checkInDate = getDate(dateCheckInDate.getCalendar());
+            LocalDate checkOutDate = getDate(dateCheckOutDate.getCalendar());
+            int compare = checkOutDate.compareTo(checkInDate);
+            
+            if(compare > 0 ){
+                return compare;
+            }   
+        }catch(Exception e){
+        }
+        return 0;
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buttonNewClient;
+    private javax.swing.JButton buttonNewClient1;
     private javax.swing.JButton buttonRegisteredClient;
     private javax.swing.JComboBox<String> comboBoxPaymentMethod;
     private javax.swing.JComboBox<String> comboBoxRooms;
     private com.toedter.calendar.JDateChooser dateCheckInDate;
-    private com.toedter.calendar.JDateChooser dateCheckOutDate1;
+    private com.toedter.calendar.JDateChooser dateCheckOutDate;
     private javax.swing.JLabel labelBg;
     private javax.swing.JLabel labelCheckInDate;
     private javax.swing.JLabel labelCheckOutDate;
