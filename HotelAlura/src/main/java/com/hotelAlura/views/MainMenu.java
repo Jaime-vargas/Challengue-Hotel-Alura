@@ -1,6 +1,8 @@
 package com.hotelAlura.views;
 
 import com.hotelAlura.Util.InterfaceUtil;
+import java.io.File;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -9,7 +11,14 @@ import javax.swing.JPanel;
  */
 public class MainMenu extends javax.swing.JPanel {
 
-    private InterfaceUtil interfaceUtil;
+    private final InterfaceUtil interfaceUtil;
+    
+    private final String USERDIR = System.getProperty("user.dir");
+    private final String IMGFOLDER = File.separator+"src"+File.separator+"main"+File.separator+"java"+File.separator+"com"+File.separator+"hotelAlura"+File.separator+"images"+File.separator;
+    private final String PATCH = USERDIR + IMGFOLDER;
+    
+    private final ImageIcon background = new ImageIcon(PATCH + "bgMenu.png");
+    private final ImageIcon alura = new ImageIcon(PATCH + "aH-150px.png");
     
     /**
      * Creates new form MainMenu
@@ -17,7 +26,9 @@ public class MainMenu extends javax.swing.JPanel {
      */
     public MainMenu(InterfaceUtil interfaceUtil) {
         this.interfaceUtil = interfaceUtil;
-        initComponents();  
+        initComponents(); 
+        labelBG.setIcon(background);
+        labelLogo.setIcon(alura);
     }
     
     /**

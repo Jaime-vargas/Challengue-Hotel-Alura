@@ -2,6 +2,8 @@ package com.hotelAlura.views;
 
 import com.hotelAlura.Util.InterfaceUtil;
 import com.hotelAlura.controllers.UserController;
+import java.io.File;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -9,7 +11,15 @@ import com.hotelAlura.controllers.UserController;
  */
 public class LoginPanel extends javax.swing.JPanel {
     
-    private InterfaceUtil interfaceUtil;
+    private final InterfaceUtil interfaceUtil;
+    
+    private final String USERDIR = System.getProperty("user.dir");
+    private final String IMGFOLDER = File.separator+"src"+File.separator+"main"+File.separator+"java"+File.separator+"com"+File.separator+"hotelAlura"+File.separator+"images"+File.separator;
+    private final String PATCH = USERDIR + IMGFOLDER;
+    
+    private final ImageIcon background = new ImageIcon(PATCH + "mainbg.jpg");
+    private final ImageIcon alura = new ImageIcon(PATCH + "aH-150px.png");
+    
     /**
      * Creates new form LoginPanel
      * @param interfaceUtil
@@ -17,6 +27,9 @@ public class LoginPanel extends javax.swing.JPanel {
     public LoginPanel(InterfaceUtil interfaceUtil) {
         this.interfaceUtil = interfaceUtil;
         initComponents();
+        labelBackground.setIcon(background);
+        aluraLogo.setIcon(alura);
+        
     }
     
     /**

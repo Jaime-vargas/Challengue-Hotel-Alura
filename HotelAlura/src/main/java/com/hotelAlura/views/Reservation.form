@@ -19,11 +19,6 @@
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="labelLogo">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\images\aH-150px.png"/>
-        </Property>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="98" y="45" width="-1" height="-1"/>
@@ -241,11 +236,6 @@
       </Constraints>
     </Component>
     <Component class="javax.swing.JLabel" name="labelBg">
-      <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\images\bgRegister.png"/>
-        </Property>
-      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="0" y="0" width="-1" height="-1"/>

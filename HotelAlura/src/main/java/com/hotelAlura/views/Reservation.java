@@ -5,10 +5,12 @@
 package com.hotelAlura.views;
 
 import com.hotelAlura.Util.InterfaceUtil;
+import java.io.File;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import java.util.Calendar;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -17,6 +19,13 @@ import java.util.Calendar;
  */
 public class Reservation extends javax.swing.JPanel {
     private InterfaceUtil interfaceUtil;
+    
+    private final String USERDIR = System.getProperty("user.dir");
+    private final String IMGFOLDER = File.separator+"src"+File.separator+"main"+File.separator+"java"+File.separator+"com"+File.separator+"hotelAlura"+File.separator+"images"+File.separator;
+    private final String PATCH = USERDIR + IMGFOLDER;
+    
+    private final ImageIcon background = new ImageIcon(PATCH + "bgRegister.png");
+    private final ImageIcon alura = new ImageIcon(PATCH + "aH-150px.png");
     /**
      * Creates new form Reservation
      * @param interfaceUtil
@@ -24,6 +33,8 @@ public class Reservation extends javax.swing.JPanel {
     public Reservation(InterfaceUtil interfaceUtil) {
         this.interfaceUtil = interfaceUtil;
         initComponents();
+        labelBg.setIcon(background);
+        labelLogo.setIcon(alura);
     }
 
     /**
@@ -147,10 +158,16 @@ public class Reservation extends javax.swing.JPanel {
     }//GEN-LAST:event_buttonRegisteredClientActionPerformed
 
     private void buttonNewClient1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonNewClient1ActionPerformed
-
-        int days = checkDates();
+        
+        LocalDate checkInDate = getDate(dateCheckInDate.getCalendar());
+        LocalDate checkOutDate = getDate(dateCheckOutDate.getCalendar());
+         
+        int days = (int) ChronoUnit.DAYS.between(checkInDate, checkOutDate);
+        
+        System.out.println("Days " + days);
+        
         int cost = comboBoxRooms.getSelectedIndex();
-        //ChronoUnit.DAYS.between(checkInDate, checkOutDate);
+        
         if(cost == 0){
             cost = 89;
         }
@@ -158,9 +175,9 @@ public class Reservation extends javax.swing.JPanel {
             cost = 159;
         }
         
-       // int totalcost = cost * ChronoUnit.DAYS.between(checkInDate, checkOutDate);
+        int totalcost = cost * days;
         
-        System.out.println("Noches :" + days + " total: $" + totalcost);
+        System.out.println("Noches :" + days + " total: $" + totalcost + " "  +   checkDates());
         
        
        
@@ -174,18 +191,17 @@ public class Reservation extends javax.swing.JPanel {
         return LocalDate.of(year, month,day);
     }
     
-    private int checkDates(){
+    private boolean checkDates(){
         try{
             LocalDate checkInDate = getDate(dateCheckInDate.getCalendar());
             LocalDate checkOutDate = getDate(dateCheckOutDate.getCalendar());
             int compare = checkOutDate.compareTo(checkInDate);
             
-            if(compare > 0 ){
-                return compare;
-            }   
+            return compare > 0;
+              
         }catch(Exception e){
         }
-        return 0;
+        return false;
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables

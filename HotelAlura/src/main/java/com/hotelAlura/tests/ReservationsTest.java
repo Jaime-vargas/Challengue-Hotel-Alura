@@ -5,6 +5,7 @@
 package com.hotelAlura.tests;
 
 import com.hotelAlura.Util.InterfaceUtil;
+import com.hotelAlura.views.MainMenu;
 import com.hotelAlura.views.Reservation;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
