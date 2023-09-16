@@ -22,16 +22,13 @@ public class ConnectionTest {
         UserDAO userDao;
         ConnectionFactory connection = new ConnectionFactory();
         userDao = new UserDAO(connection.doConnection());
-        User user = new User(6, "Juan", "Hola Mundo");
-
+        
         var list = userDao.read();
         for (int i = 0; i < list.size(); i++) {
             System.out.printf("ID de Usuario: %d%nNombre de usuario: %s%n", list.get(i).getId(),
                     list.get(i).getUsername());
         }
 
-        var rerult = userDao.authenticate(user);
-        System.out.println(rerult);
     }
 
 }

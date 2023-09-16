@@ -19,7 +19,7 @@ public class ReservationDAO {
         this.connection = connection;
     }
 
-    public boolean save(Reservation reservation) {
+    public boolean save(Reservation reservation) throws SQLException{
         try (PreparedStatement statement = connection.prepareStatement(
                 "INSERT INTO reservations (checkInDate, checkOutDate, totalCost, paymentMethod, guestId)"
                         + "VALUES (?,?,?,?,?)")) {
@@ -29,23 +29,22 @@ public class ReservationDAO {
             statement.setDate(2, checkOutDate);
             statement.setBigDecimal(3, BigDecimal.valueOf(reservation.getTotalCost()));
             statement.setString(4, reservation.getPaymentMethod());
-            statement.setInt(5, reservation.getGuestId());
+            statement.setInt(5, reservation.getGuest().getId());
 
             int rowsAffected = statement.executeUpdate();
 
             return rowsAffected > 0;
         } catch (SQLException e) {
-            // TODO error frame with error
-            return false;
+            throw new SQLException();
         }
 
     }
-
+    
     public List<Reservation> read() {
         List<Reservation> reservations = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(
-                "SELECT reservations.id, reservations.checkInDate , reservations.checkOutDate, reservations.totalcost, reservations.paymentMethod, guests.guestName, guests.guestLastName "
-                        + "FROM reservations INNER JOIN guests ON reservations.guestId = guests.id")) {
+                "SELECT reservations.id, reservations.checkInDate , reservations.checkOutDate, reservations.totalcost, reservations.paymentMethod, reservations.guestId "
+                        + "FROM reservations")) {
             ResultSet resultset = statement.executeQuery();
             while (resultset.next()) {
                 reservations.add(new Reservation(
@@ -54,8 +53,7 @@ public class ReservationDAO {
                         resultset.getDate("checkOutDate").toLocalDate(),
                         resultset.getDouble("totalCost"),
                         resultset.getString("paymentMethod"),
-                        resultset.getString("guestName"),
-                        resultset.getString("guestLastName")));
+                        resultset.getInt("guestId")));
             }
 
             return reservations;
@@ -63,6 +61,29 @@ public class ReservationDAO {
             return null;
         }
     }
+    
+//    public List<Reservation> read() {
+//        List<Reservation> reservations = new ArrayList<>();
+//        try (PreparedStatement statement = connection.prepareStatement(
+//                "SELECT reservations.id, reservations.checkInDate , reservations.checkOutDate, reservations.totalcost, reservations.paymentMethod, guests.guestName, guests.guestLastName "
+//                        + "FROM reservations INNER JOIN guests ON reservations.guestId = guests.id")) {
+//            ResultSet resultset = statement.executeQuery();
+//            while (resultset.next()) {
+//                reservations.add(new Reservation(
+//                        resultset.getInt("id"),
+//                        resultset.getDate("checkInDate").toLocalDate(),
+//                        resultset.getDate("checkOutDate").toLocalDate(),
+//                        resultset.getDouble("totalCost"),
+//                        resultset.getString("paymentMethod"),
+//                        resultset.getString("guestName"),
+//                        resultset.getString("guestLastName")));
+//            }
+//
+//            return reservations;
+//        } catch (SQLException e) {
+//            return null;
+//        }
+//    }
 
     public boolean update(Reservation reservation) {
         try (PreparedStatement statement = connection.prepareStatement(

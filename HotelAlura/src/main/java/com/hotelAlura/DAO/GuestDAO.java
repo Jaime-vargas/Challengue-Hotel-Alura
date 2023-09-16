@@ -9,6 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.hotelAlura.models.Guest;
+import java.sql.SQLIntegrityConstraintViolationException;
+import java.time.LocalDate;
+import javax.swing.JOptionPane;
 
 public class GuestDAO {
 
@@ -18,7 +21,7 @@ public class GuestDAO {
         this.connection = connection;
     }
 
-    public boolean save(Guest guest) {
+    public boolean save(Guest guest) throws SQLException {
         try (PreparedStatement statement = connection.prepareStatement(
                 "INSERT INTO guests (guestName, guestLastName, guestBirthday, guestNationality, guestPhone) "
                         + "VALUES (?, ?, ?, ?, ?)")) {
@@ -32,12 +35,11 @@ public class GuestDAO {
             int rowsAffected = statement.executeUpdate();
             return rowsAffected > 0;
 
-        } catch (SQLException e) {
-            // TODO error frame with error
-            return false;
+        } catch (SQLIntegrityConstraintViolationException e) {
+            throw new SQLException();
         }
     }
-
+//
     public List<Guest> read(){
         List<Guest> guests = new ArrayList<>();
         try(PreparedStatement statement = connection.prepareStatement(
@@ -55,6 +57,28 @@ public class GuestDAO {
                 }
                 return guests;
             }catch(SQLException e){
+                return null;
+            }
+    }
+    
+    public Guest readByID(Integer guestID){
+         
+        try(PreparedStatement statement = connection.prepareStatement(
+            "SELECT id, guestName, guestLastName, guestBirthday, guestNationality, guestPhone FROM guests WHERE id = ?")){
+            statement.setInt(1, guestID);
+            ResultSet resultSet = statement.executeQuery();
+            resultSet.next();
+                Guest guest = new Guest();
+                    guest.setId(resultSet.getInt("id"));
+                    guest.setGuestName(resultSet.getString("guestName"));
+                    guest.setGuestLastName(resultSet.getString("guestLastName"));
+                    guest.setGuestBirthday(resultSet.getDate("guestBirthday").toLocalDate());
+                    guest.setGuestNationality(resultSet.getString("guestNationality"));
+                    guest.setGuestPhone(resultSet.getString("guestPhone"));
+                    
+                return guest;
+            }catch(SQLException e){
+                e.printStackTrace(); 
                 return null;
             }
     }
@@ -79,6 +103,21 @@ public class GuestDAO {
                 // TODO error frame with error
             return false;
             }
+    }
+    
+    public boolean delete(Guest guest) {
+        try (PreparedStatement statement = connection.prepareStatement(
+                    "DELETE FROM guests WHERE id = ? ;")){
+            statement.setInt(1, guest.getId());
+
+            int rowsAffected = statement.executeUpdate();
+
+            return rowsAffected > 0;
+
+        } catch (SQLException e) {
+            // TODO error frame with error
+            return false;
+        }
     }
 
 }

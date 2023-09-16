@@ -19,6 +19,9 @@ public class Guest {
     private String guestNationality;
     private String guestPhone;
 
+    public Guest(){
+        
+    }
     public Guest(String guestNAme, String guestLastNAme, LocalDate guestBirthday, String guestNationality,
             String guestPhone) {
         this.guestName = guestNAme;
@@ -59,6 +62,30 @@ public class Guest {
 
     public String getGuestPhone() {
         return guestPhone;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setGuestName(String guestName) {
+        this.guestName = guestName;
+    }
+
+    public void setGuestLastName(String guestLastName) {
+        this.guestLastName = guestLastName;
+    }
+
+    public void setGuestBirthday(LocalDate guestBirthday) {
+        this.guestBirthday = guestBirthday;
+    }
+
+    public void setGuestNationality(String guestNationality) {
+        this.guestNationality = guestNationality;
+    }
+
+    public void setGuestPhone(String guestPhone) {
+        this.guestPhone = guestPhone;
     }
 
     @Override

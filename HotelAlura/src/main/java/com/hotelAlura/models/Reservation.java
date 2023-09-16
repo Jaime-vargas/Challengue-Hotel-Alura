@@ -4,6 +4,7 @@
  */
 package com.hotelAlura.models;
 
+import com.hotelAlura.controllers.GuestController;
 import java.time.LocalDate;
 
 /**
@@ -18,16 +19,16 @@ public class Reservation {
     private Double totalCost;
     private String paymentMethod;
     private Integer guestId;
-    private String guestName;
-    private String guestLastName;
+    private Guest guest;
+
 
     public Reservation(LocalDate checkInDate, LocalDate chackOuDate, double totalCost, String paymentMethod,
-            Integer guestId) {
+            Guest guest) {
         this.checkInDate = checkInDate;
         this.checkOutDate = chackOuDate;
         this.totalCost = totalCost;
         this.paymentMethod = paymentMethod;
-        this.guestId = guestId;
+        this.guest = guest;
     }
 
     // Constructor only for testing
@@ -39,17 +40,7 @@ public class Reservation {
         this.totalCost = totalCost;
         this.paymentMethod = paymentMethod;
         this.guestId = guestId;
-    }
-
-    public Reservation(Integer id, LocalDate checkInDate, LocalDate chackOuDate, double totalCost, String paymentMethod,
-            String guestName, String guestLastName) {
-        this.id = id;
-        this.checkInDate = checkInDate;
-        this.checkOutDate = chackOuDate;
-        this.totalCost = totalCost;
-        this.paymentMethod = paymentMethod;
-        this.guestName = guestName;
-        this.guestLastName = guestLastName;
+        this.guest = GuestController.readByID(guestId);
     }
 
     public Integer getId() {
@@ -72,8 +63,8 @@ public class Reservation {
         return paymentMethod;
     }
 
-    public Integer getGuestId() {
-        return guestId;
+    public Guest getGuest() {
+        return guest;
     }
 
     @Override
@@ -87,7 +78,7 @@ public class Reservation {
                         + "guestName: %s,"
                         + "guestLastName: %s}",
                 this.id, this.checkInDate, this.checkOutDate, this.totalCost,
-                this.paymentMethod, this.guestName, this.guestLastName);
+                this.paymentMethod, this.guest.getGuestName(), this.guest.getGuestLastName());
 
     }
 
