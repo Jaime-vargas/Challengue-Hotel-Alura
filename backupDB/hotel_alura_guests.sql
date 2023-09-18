@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `hotel_alura` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `hotel_alura`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: hotel_alura
@@ -26,14 +24,14 @@ DROP TABLE IF EXISTS `guests`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `guests` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `guestname` varchar(50) NOT NULL,
-  `guestlastname` varchar(50) NOT NULL,
-  `guestbirthdate` date NOT NULL,
+  `guestName` varchar(50) NOT NULL,
+  `guestLastname` varchar(50) NOT NULL,
+  `guestBirthday` date NOT NULL,
   `guestNationality` varchar(50) NOT NULL,
   `guestPhone` varchar(12) NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `guestData` (`guestname`,`guestlastname`,`guestbirthdate`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  UNIQUE KEY `guestData` (`guestName`,`guestLastname`,`guestBirthday`)
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +40,7 @@ CREATE TABLE `guests` (
 
 LOCK TABLES `guests` WRITE;
 /*!40000 ALTER TABLE `guests` DISABLE KEYS */;
-INSERT INTO `guests` VALUES (1,'Juan','Perez','2001-01-25','',''),(2,'Juan','Lopez','2001-02-25','',''),(4,'Jaime Alejandro','Vargas Cota','1993-10-13','Mexican','523315383333'),(5,'Luis Enrique','Lopez','1993-05-17','Mexican','523312458963'),(8,'Ana','Lopez','1985-03-05','Mexican','523312458763');
+INSERT INTO `guests` VALUES (4,'jaime alejandro','vargas jimenez','1993-10-14','mexican','523315383333'),(8,'ana karen','lopez','1985-03-05','mexican','523312458763'),(9,'manuel','lopez','1993-12-20','canadian','523315383333'),(11,'pedro','perez','1993-12-12','usa','523344556677'),(12,'laura maria','vargas','1990-09-12','mexican','523344556677'),(20,'laura karen','vargas','1990-09-12','mexican','523344556677'),(23,'ana','villanueva','2002-09-13','mexican','523314556699'),(24,'alejandro','martinez','1996-03-12','mexican','3312457896'),(25,'carlos','martinez','1992-06-20','mexican','523344556677'),(26,'maria','lopez','1996-10-25','canadian','5369855264'),(27,'ana karen','villanueva navarro','1994-03-03','mexican','523344556677');
 /*!40000 ALTER TABLE `guests` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-29 19:55:04
+-- Dump completed on 2023-09-18 15:43:32

@@ -1,5 +1,3 @@
-CREATE DATABASE  IF NOT EXISTS `hotel_alura` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `hotel_alura`;
 -- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: localhost    Database: hotel_alura
@@ -30,7 +28,7 @@ CREATE TABLE `users` (
   `password` varchar(50) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +37,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'root','12345'),(2,'JAime','12345'),(4,'Lola','1234e5'),(5,'perrola','1234e5'),(6,'Juan','Hola Mundo'),(8,'Ana','holamundo'),(9,'Anita','holamundo'),(10,'Jaime Vargas','123456'),(11,'User test','12355'),(12,'Userwtest','12355'),(14,'Userttest','12355'),(15,'User8test','12355'),(17,'User7test','12355'),(19,'User125test','12355'),(21,'User1275test','12355');
+INSERT INTO `users` VALUES (1,'root','12345');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-08-29 19:55:04
+-- Dump completed on 2023-09-18 15:43:32
