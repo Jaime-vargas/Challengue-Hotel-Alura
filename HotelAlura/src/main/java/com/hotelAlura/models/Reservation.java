@@ -1,15 +1,13 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.hotelAlura.models;
 
 import com.hotelAlura.controllers.GuestController;
 import java.time.LocalDate;
 
 /**
- *
+ * 
  * @author jaime
+ * Modelo del tipo Reservation contiene propiedades con los mismos campos contenidos en la base de datos
+ * incluye getters y setters de todos los atrubutos 
  */
 public class Reservation {
 
@@ -20,8 +18,14 @@ public class Reservation {
     private String paymentMethod;
     private Integer guestId;
     private Guest guest;
-
-
+/**
+ * Constructor utilizado para el registro de Reservaciones
+ * @param checkInDate
+ * @param chackOuDate
+ * @param totalCost
+ * @param paymentMethod
+ * @param guest 
+ */
     public Reservation(LocalDate checkInDate, LocalDate chackOuDate, double totalCost, String paymentMethod,
             Guest guest) {
         this.checkInDate = checkInDate;
@@ -31,7 +35,15 @@ public class Reservation {
         this.guest = guest;
     }
 
-    // Constructor only for testing
+/**
+ * Constructor utilizado al leer reservaciones existentes
+ * @param id
+ * @param checkInDate
+ * @param chackOuDate
+ * @param totalCost
+ * @param paymentMethod
+ * @param guestId 
+ */
     public Reservation(Integer id, LocalDate checkInDate, LocalDate chackOuDate, double totalCost, String paymentMethod,
             Integer guestId) {
         this.id = id;
@@ -79,7 +91,5 @@ public class Reservation {
                         + "guestLastName: %s}",
                 this.id, this.checkInDate, this.checkOutDate, this.totalCost,
                 this.paymentMethod, this.guest.getGuestName(), this.guest.getGuestLastName());
-
     }
-
 }

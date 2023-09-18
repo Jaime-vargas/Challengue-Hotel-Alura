@@ -1,23 +1,30 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.hotelAlura.models;
 
 /**
- *
+ * 
  * @author jaime
+ * Modelo del tipo User contiene propiedades con los mismos campos contenidos en la base de datos
+ * incluye getters y setters de todos los atrubutos 
  */
 public class User {
     private Integer id;
     private String username;
     private String password;
-
+/**
+ * Constructor utilizado para el registro / autenticacion de usuarios
+ * @param username
+ * @param password 
+ */
     public User(String username, String password) {
         this.username = username;
         this.password = password;
     }
-
+/**
+ * Constructor utilizado al leer usuarios existentes
+ * @param id
+ * @param username
+ * @param password 
+ */
     public User(Integer id, String username, String password) {
         this.id = id;
         this.username = username;
@@ -42,5 +49,4 @@ public class User {
                 "{id: %d, username: %s}",
                 this.id, this.username);
     }
-
 }

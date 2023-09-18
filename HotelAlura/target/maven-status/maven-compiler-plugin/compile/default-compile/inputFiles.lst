@@ -3,6 +3,7 @@ D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\models\Guest.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\DAO\ReservationDAO.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\tests\ConnectionTest.java
+D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\views\RegisteredGuestsPanel2.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\DAO\GuestDAO.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\tests\ValidacionTest.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\DAO\UserDAO.java
@@ -11,16 +12,18 @@ D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\models\User.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\tests\ConnectionTestReservation.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\views\MainMenu.java
+D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\views\RegisteredGuestsPanel.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\tests\TestGuestById.java
+D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\views\viewReservationsPanel.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\views\EditGuests.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\Util\InterfaceUtil.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\controllers\UserController.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\views\LogoutQuestion.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\tests\Gpt.java
+D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\views\SearchMenu.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\tests\ClientsTest.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\views\NewGuests.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\controllers\GuestController.java
-D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\tests\ReservationsTest.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\factory\ConnectionFactory.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\controllers\ReservationController.java
 D:\jaime\Desktop\Challengue-Hotel-Alura\HotelAlura\src\main\java\com\hotelAlura\models\Reservation.java

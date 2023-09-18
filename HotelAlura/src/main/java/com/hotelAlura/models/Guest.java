@@ -1,14 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.hotelAlura.models;
 
 import java.time.LocalDate;
 
 /**
- *
+ * 
  * @author jaime
+ * Modelo del tipo Guest contiene propiedades con los mismos campos contenidos en la base de datos
+ * incluye getters y setters de todos los atrubutos 
  */
 public class Guest {
 
@@ -22,6 +20,14 @@ public class Guest {
     public Guest(){
         
     }
+    /**
+     * Constructor utilizado para el registro de Huespedes
+     * @param guestNAme
+     * @param guestLastNAme
+     * @param guestBirthday
+     * @param guestNationality
+     * @param guestPhone 
+     */
     public Guest(String guestNAme, String guestLastNAme, LocalDate guestBirthday, String guestNationality,
             String guestPhone) {
         this.guestName = guestNAme;
@@ -30,6 +36,15 @@ public class Guest {
         this.guestNationality = guestNationality;
         this.guestPhone = guestPhone;
     }
+    /**
+     * Constructor utilizado al leer huespedes existentes
+     * @param id
+     * @param guestName
+     * @param guestLastName
+     * @param guestBirthday
+     * @param guestNationality
+     * @param guestPhone 
+     */
      public Guest(Integer id, String guestName, String guestLastName, LocalDate guestBirthday, String guestNationality,
             String guestPhone) {
         this.id = id;
